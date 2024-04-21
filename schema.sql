@@ -1,0 +1,23 @@
+CREATE TABLE
+IF NOT EXISTS users
+(id INTEGER PRIMARY KEY, email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, userId TEXT NOT NULL);
+
+CREATE TABLE
+IF NOT EXISTS orders
+(id INTEGER PRIMARY KEY, userId INTEGER, date TEXT NOT NULL, message TEXT NOT NULL, phone TEXT NOT NULL, `order` TEXT NOT NULL, FOREIGN KEY
+(userId) REFERENCES users
+(id));
+
+CREATE TABLE
+IF NOT EXISTS reviews
+(
+    id INTEGER PRIMARY KEY,
+    email TEXT NOT NULL,
+    review TEXT NOT NULL,
+    date TEXT NOT NULL,
+    FOREIGN KEY
+(email) REFERENCES users
+(email)
+);
+
+
